@@ -21,7 +21,7 @@ public class ProdutoService {
 
     // CREATE
     public ProdutoResponse create (ProdutoRequest request){
-        if (repository.existByNome(request.nome())){
+        if (repository.existsByNome(request.nome())){
             throw new ProdutoJaExiste();
         }
         return mapper.paraResposta(repository.save(mapper.paraEntidade(request)));
